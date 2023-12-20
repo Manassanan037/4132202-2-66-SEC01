@@ -3,13 +3,13 @@
     <input type="text" name="id" id="inp_id">
     <br>
     <label for="inp_name">Name :</label>
-    <input type="text" name="id" id="inp_name">
+    <input type="text" name="name" id="inp_name">
     <br>
     <label for="inp_prov">Province : </label>
-    <input type="text" name="id" id="inp_prov">
+    <input type="text" name="pro" id="inp_prov">
     <br>
-    <button type="submit">SAVE</button>
-    <button type="reset">Cancle</button>
+    <button type="submit" class="btn btn-primary">SAVE</button>
+    <button type="reset" class="btn btn-danger">Cancle</button>
 
 </form>
 
@@ -27,6 +27,7 @@
                     alert("Don't insert data into DB.");
                 else
                     $("#div_item").load("/listitem.php");
+                
             }
         });
     });

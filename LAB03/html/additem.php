@@ -1,9 +1,9 @@
 <?php
 require_once "condb.php";
 
-$id = $_POST['id_member'];
+$id = $_POST['id'];
 $name = $_POST['name'];
-$prov = $_POST['id_province'];
+$prov = $_POST['prov'];
 
 try {
     $sql = "INSERT INTO tb_member VALUES('$id','$name','$prov')";

@@ -6,9 +6,11 @@ $result = mysqli_query($conn, $sql);
 
 //var_dump($result);
 ?>
+<button id="btn_add" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">+ Add</button>  
 
-<button id="btn_add"> + Add</button>
-<table>
+
+
+<table class="table table-striped table-hover">
     <thead>
         <tr>
             <th>ID</th>
@@ -26,6 +28,7 @@ $result = mysqli_query($conn, $sql);
                 <td><?= $row["name"] ?></td>
                 <td><?= $row["id_province"] ?></td>
                 <td><Button class="btn_del" data-id="<?= $row["id_member"] ?>">Delete</Button></td>
+                <td><Button class="btn_edit" data-id="<?= $row["id_member"] ?>">Edit</Button></td>
             </tr>
         <?php
         }
@@ -36,7 +39,7 @@ $result = mysqli_query($conn, $sql);
 <script>
     $(".btn_del").click(function() {
         let id = $(this).data("id"); //มารับค่าของตัวที่ถูกคลิก id ->data-id
-        console.log(id); //แสดงผลผ่าน consloe
+        console.log(id); //แสดงผลผ่าน consloeท
 
         $.ajax({ //เป็นตัวโหลด
             url: "/delitem.php",
@@ -55,7 +58,16 @@ $result = mysqli_query($conn, $sql);
     });
 
     $("#btn_add").click(function() {
-        $("#div_item").load("/addform.php");
+        //$("#div_item").load("/addform.php");
+        $("#staticBackdropLabel").text("Add Item");
+        $(".modal-body").load("/addform.php");
+        $(".modal-footer").hide();
+    });
+    $(".btn_edit").click(function() {
+        //$("#div_item").load("/editform.php");
+        $("#staticBackdropLabel").text("Edit Item");
+        $(".modal-body").load('/editform.php?id=${id}');
+        $(".modal-footer").hide();
     });
 
 </script>
