@@ -1,16 +1,15 @@
 <?php
 require_once "condb.php";
 
-$id = $_POST['id'];
-$name = $_POST['name'];
-$prov = $_POST['prov'];
+$id = $_POST['id_2'];
+$name = $_POST['name_2'];
+$prov = $_POST['prov_2'];
+$sql = "UPDATE tb_member SET 'name' = '$name',id_province = '$prov' WHERE id_member = '$id' ";
 
 try {
-    $sql = "UPDATE tb_member 
-    SET 'name' = '$name' ,id_province = '$prov'
-    Where id_member = '$id' ";
     mysqli_query($conn, $sql);
-    echo "Updated data new name is '$name' and prov'$prov' successfuly ";
 } catch (Exception $e) {
     echo "Error";
 }
+
+?>
